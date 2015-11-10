@@ -11,6 +11,7 @@ lazy val commonSettings = Defaults.defaultSettings ++ Seq(
   )
 
 val sparkVersion = "1.4.0"
+val druidVersion = "0.8.1"
 
 
 lazy val root: Project = Project(
@@ -21,7 +22,10 @@ lazy val root: Project = Project(
         "org.apache.spark" %% "spark-core" % sparkVersion % "provided",
         "org.apache.spark" %% "spark-sql" % sparkVersion % "provided",
         "org.apache.spark" %% "spark-catalyst" % sparkVersion % "provided",
-        "org.apache.spark" %% "spark-hive" % sparkVersion % "provided"
+        "org.apache.spark" %% "spark-hive" % sparkVersion % "provided",
+        "io.druid" % "druid" % druidVersion % "provided",
+        "io.druid" % "druid-services" % druidVersion % "provided",
+        "io.druid" % "druid-indexing-hadoop" % druidVersion % "provided"
       ),
      assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false),
       test in assembly := {}
